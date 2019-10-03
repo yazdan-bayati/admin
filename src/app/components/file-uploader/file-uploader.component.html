@@ -1,0 +1,253 @@
+<h1>Add Hotel</h1>
+<div class="form-group">
+  <div class="row">
+    <label for="file">Choose Main Image</label>
+    <input #imageInput type="file" id="mainfile" accept="image/*" (change)="handleFileInput(imageInput, 'mainImage')"
+      multiple>
+
+
+    <label for="file">Choose Search Result Image</label>
+    <input #imageInputSearchResult type="file" id="sfile" accept="image/*"
+      (change)="handleFileInput(imageInputSearchResult, 'searchResultImage')">
+
+    <label for="file">Choose top search1</label>
+    <input #imageInputTopSearch1 type="file" id="ts1file" accept="image/*"
+      (change)="handleFileInput(imageInputTopSearch1, 'topSearch1')">
+
+    <label for="file">Choose Top Search2 </label>
+    <input #imageInputTopSearch2 type="file" id="ts2" accept="image/*"
+      (change)="handleFileInput(imageInputTopSearch2, 'topSearch2')">
+
+    <label for="file">Choose Top Search3</label>
+    <input #imageInputTopSearch3 type="file" id="ts3" accept="image/*"
+      (change)="handleFileInput(imageInputTopSearch3, 'topSearch3')">
+
+
+    <label for="file">Choose First Detail Image</label>
+    <input #imageInputfirstDetailImage type="file" id="firstDetailImagefile" accept="image/*"
+      (change)="handleFileInput(imageInputfirstDetailImage, 'firstDetailImage')">
+    <label for="file">Choose Second Detail Image</label>
+    <input #imageInputsecondDetailImage type="file" id="secondDetailImagefile" accept="image/*"
+      (change)="handleFileInput(imageInputsecondDetailImage, 'secondDetailImage')">
+    <label for="file">Choose third Detail Image</label>
+    <input #imageInputthirdDetailImage type="file" id="thirdDetailImagefile" accept="image/*"
+      (change)="handleFileInput(imageInputthirdDetailImage, 'thirdDetailImage')">
+
+  </div>
+</div>
+
+
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-4">
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input formControlName="title" id="title" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="address">Address</label>
+        <div class="input-group">
+          <input formControlName="address" id="address" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="country">Country</label>
+        <div class="input-group">
+          <input formControlName="country" id="country" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-4">
+        <label for="city">City</label>
+        <div class="input-group">
+          <input formControlName="city" id="city" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="numberOfRooms">Number Of Rooms</label>
+        <div class="input-group">
+          <input formControlName="numberOfRooms" type="number" id="numberOfRooms" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="phone">Phone</label>
+        <div class="input-group">
+          <input formControlName="phone" id="phone" class="form-control">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="row">
+      <div class="col-6">
+        <label for="checkInTime">Check In Time</label>
+        <div class="input-group">
+          <input formControlName="checkInTime" id="checkInTime" class="form-control" placeholder="yyyy-mm-dd" name="chip" ngbDatepicker
+            #chip="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="chip.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <label for="checkOutTime">Check Out Time</label>
+        <div class="input-group">
+          <input formControlName="checkOutTime" id="checkOutTime" class="form-control" placeholder="yyyy-mm-dd" name="chop" ngbDatepicker
+            #chop="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="chop.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
+    <div class="row">
+      <div class="col-4">
+        <label for="webSite">Web Site</label>
+        <div class="input-group">
+          <input formControlName="webSite" id="webSite" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="desciption">Desciption</label>
+        <div class="input-group">
+          <input formControlName="desciption" id="desciption" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="rate">Rate</label>
+        <div class="input-group">
+          <input formControlName="rate" id="rate" class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-4">
+        <label for="price">Price</label>
+        <div class="input-group">
+          <input formControlName="price" id="price" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="discount">Promotion</label>
+        <div class="input-group">
+          <input formControlName="discount" id="discount" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label ngbButtonLabel>
+          <input formControlName="popular" type="checkbox" ngbButton>popular
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-4">
+        <label ngbButtonLabel>
+          <input formControlName="hot" type="checkbox" ngbButton>hot
+        </label>
+      </div>
+      <div class="col-4">
+        <label ngbButtonLabel>
+          <input formControlName="wifi" type="checkbox" ngbButton>wifi
+        </label>
+      </div>
+      <div class="col-4">
+        <label ngbButtonLabel>
+          <input formControlName="parking" type="checkbox" ngbButton>parking
+        </label>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-6">
+        <label ngbButtonLabel>
+          <input formControlName="airportShuttle" type="checkbox" ngbButton>AirportShuttle
+        </label>
+      </div>
+      <div class="col-6">
+        <label ngbButtonLabel>
+          <input formControlName="restaurant" type="checkbox" ngbButton>Restaurant
+        </label>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-4">
+        <label for="checkinHour">CheckinHour</label>
+        <div class="input-group">
+          <input formControlName="checkinHour" id="checkinHour" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-4">
+        <label for="checkouHour">CheckouHour</label>
+        <div class="input-group">
+          <input formControlName="checkouHour" id="checkouHour" class="form-control">
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="countryCode">Country Code</label>
+        <div class="input-group">
+          <input formControlName="countryCode" id="countryCode" class="form-control">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <label for="overviewTxt">Overview Text</label>
+      <div class="input-group">
+        <textarea formControlName="overviewTxt" id="overviewTxt" class="form-control"></textarea>
+      </div>
+
+    </div>
+    <button class="btn" (click)="addRoom()">add Room</button>
+    <div formArrayName="rooms" *ngFor="let room of roomForms; let i = index" class="row">
+      <ng-container [formGroupName]="i">
+        <div class="col-6">
+          <label>Room Number</label>
+          <div class="input-group">
+            <input formControlName="roomNumber" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-6">
+          <label>Room Type</label>
+          <div class="input-group">
+            <select formControlName="type" class="form-control">
+              <option value=""></option>
+              <option value="1">Single</option>
+              <option value="2">Double</option>
+            </select>
+
+          </div>
+
+        </div>
+
+      </ng-container>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <input type="submit" class="btn btn-primary">
+        <button (click)="filDemoData()" class = "btn-primary">Fill Demo Data</button>
+      </div>
+    </div>
+  </div>
+</form>
