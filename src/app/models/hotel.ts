@@ -48,6 +48,7 @@ export class Hotel {
         this.hot = true;
         this.numberOfRooms = 200;
         this.orginalPrice = 400;
+        // tslint:disable-next-line: max-line-length
         this.overviewTxt = 'this hotel located in norh of theran and its contain parking , airpoer shatel and many more facilites and if you want to spend wonderful days you should choice this hotel and enjoy your stay in tehran ';
         this.parking = true;
         this.phone = '887789887';
